@@ -1,16 +1,16 @@
 let classPrioridad = 'default'
 
 
-class construirTarea {
+class ConstruirTarea {
     constructor (nombre,prioridad) {
         switch(prioridad) {
-            case 1:
+            case '1':
                 classPrioridad = 'alta'
                 break;
-            case 2:
+            case '2':
                 classPrioridad = 'media'
                 break;
-            case 3:
+            case '3':
                 classPrioridad = 'baja'
                 break;
         }
@@ -24,6 +24,8 @@ class construirTarea {
         creado.innerHTML = contenido
     }
 }
+
+//module.exports = ConstruirTarea
 
 
 

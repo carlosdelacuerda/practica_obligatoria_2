@@ -1,56 +1,58 @@
 
+//ConstruirTarea = require ('./paintList.js') 
 //pintar tabla
 
 function pintarme (pNombre , pPrioridad) {
     listadoTareas.forEach(tarea => {
         pNombre = tarea.nombre 
         pPrioridad = tarea.prioridad
-        new construirTarea (pNombre , pPrioridad)
+        new ConstruirTarea (pNombre , pPrioridad)
+        console.log(pNombre)
+        console.log(pPrioridad)
     })    
 }
 
 pintarme()
 
 
-
-
 let option = document.querySelector('option')
 
 let selection = document.querySelector('select')
+let boton = document.querySelector('button')
+
+
+let media = document.querySelector('.media')
 
 
 function filtrado (event) {
-    alert()
+    event.preventDefault()
     switch (selection.value) {
-        case '0':
-            let todas = document.querySelectorAll('.alta , .media , .baja')
+     /*   case '0':
+            alert(0)
             todas.forEach(borrar => {
-                borrar.style.display = 'block'
+            borrar.style.display = 'block'
             });
-            break
+            break     */
         case '1':
-            let alta = document.querySelectorAll('.alta')
-            alta.forEach(borrar => {
-            borrar.style.display = 'none'
-            });
-            break
+            console.log('test');
+            console.log(media);
+            document.querySelector('.media').style.display = 'none'
+            console.log('test');
+            alert(1);
+            
+            
+            break;
         case '2':
-            let media = document.querySelectorAll('.media')
-            alta.forEach(borrar => {
-                borrar.style.display = 'none'
-            });
+            alert(2)
             break
         case '3':
-            let baja = document.querySelectorAll('.baja')
-            alta.forEach(borrar => {
-                borrar.style.display = 'none'
-            });
-            break        
+            alert(3)
+            break     
     }
 }
 
 
 
 
-selection.addEventListener('click', select )
+boton.addEventListener('click', filtrado )
     

@@ -8,3 +8,9 @@
 .alta {
     background-color: red;
 }
+.bolck {
+    display: block;
+}
+.hide {
+    display: none;
+}
