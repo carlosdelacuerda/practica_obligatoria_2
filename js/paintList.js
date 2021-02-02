@@ -14,7 +14,7 @@ class ConstruirTarea {
                 classPrioridad = 'baja'
                 break;
         }
-        let contenido = `<article class="${classPrioridad}"><h2>${nombre}</h2><button>Eliminar</button></article>`
+        let contenido = `<article class="${classPrioridad}"><h2>${nombre}</h2><button class="eliminar">Eliminar</button></article>`
         this.xnombre = nombre
         this.xprioridad = prioridad  
         this.tabla = document.querySelector('.tabla')

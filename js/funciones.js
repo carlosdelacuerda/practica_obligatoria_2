@@ -2,27 +2,26 @@
 //ConstruirTarea = require ('./paintList.js') 
 //pintar tabla
 
+let botonEliminar = document.querySelectorAll('.eliminar')
+
 function pintarme (pNombre , pPrioridad) {
     listadoTareas.forEach(tarea => {
         pNombre = tarea.nombre 
         pPrioridad = tarea.prioridad
         new ConstruirTarea (pNombre , pPrioridad)
-        console.log(pNombre)
-        console.log(pPrioridad)
+        botonEliminar = document.querySelectorAll('.eliminar')
+       
     })    
 }
 
 pintarme()
 
-
 let option = document.querySelector('option')
 let filtradoPrioridad = document.querySelector('#filtradoPrioridad')
 
 let selection = document.querySelector('select')
-let boton = document.querySelector('button')
 let botonCrear = document.getElementById("add");
 
-let media = document.querySelector('.media')
 
 
 function filtrado (event) {
@@ -54,7 +53,16 @@ function filtrado (event) {
 }
 
 
+function eliminarTarea (event) {
+    botonEliminar = new Array (botonEliminar)
+    console.log(botonEliminar)
+    console.log(botonEliminar.indexOf(this))
+}
+
+
+
 
 
 filtradoPrioridad.addEventListener('change', filtrado )
 botonCrear.addEventListener('click', addTarea)
+botonEliminar.forEach(elemento => elemento.addEventListener('click',eliminarTarea))
