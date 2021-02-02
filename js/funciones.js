@@ -19,7 +19,7 @@ let option = document.querySelector('option')
 let filtradoPrioridad = document.querySelector('#filtradoPrioridad')
 let selection = document.querySelector('select')
 let boton = document.querySelector('button')
-
+let botonCrear = document.getElementById("add");
 
 let media = document.querySelector('.media')
 
@@ -53,3 +53,4 @@ function filtrado (event) {
 
 
 filtradoPrioridad.addEventListener('change', filtrado )
+botonCrear.addEventListener('click', addTarea)

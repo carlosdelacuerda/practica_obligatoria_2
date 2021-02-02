@@ -10,16 +10,15 @@
 <body>
     <header>
         <form action="" class="container">
-            <input type="text" placeholder="Introuduce una tarea">
-            <select>
+            <input id="nombreTarea" type="text" placeholder="Introuduce una tarea">
+            <select id="prioridadTarea">
                 <option value="0">Seleccione prioridad</option>
                 <option value="1">Alta</option>
                 <option value="2">Meda</option>
                 <option value="3">Baja</option>
             </select>
-            <button>hola</button>
-            <input type="button" name="Incluir" id="Add" value="Guardar">
-            <h3>Debes completar todos los campos</h3>
+            <input type="button" name="Incluir" id="add" value="Guardar">
+            <h3 id="alerta">Debes completar todos los campos</h3>
         </form>
     </header>
     <main>
@@ -33,10 +32,11 @@
                 </select>
                 <input type="text" placeholder="Tarea a buscar">
             </nav>
-            <div class="tabla"></div>
+            <div class="tabla" id="tabla"></div>
         </div>
     </main>
     <script src="js/paintList.js"></script>
+    <script src="js/crearTarea.js"></script>
     <script src="js/funciones.js"></script>
     
     
