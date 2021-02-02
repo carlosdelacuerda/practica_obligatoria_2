@@ -16,7 +16,7 @@ pintarme()
 
 
 let option = document.querySelector('option')
-
+let filtradoPrioridad = document.querySelector('#filtradoPrioridad')
 let selection = document.querySelector('select')
 let boton = document.querySelector('button')
 
@@ -27,12 +27,10 @@ let media = document.querySelector('.media')
 function filtrado (event) {
     event.preventDefault()
     switch (selection.value) {
-     /*   case '0':
+       case '0':
             alert(0)
-            todas.forEach(borrar => {
-            borrar.style.display = 'block'
-            });
-            break     */
+           
+            break ;    
         case '1':
             console.log('test');
             console.log(media);
@@ -44,15 +42,14 @@ function filtrado (event) {
             break;
         case '2':
             alert(2)
-            break
+            break;
         case '3':
             alert(3)
-            break     
+            break ;    
     }
 }
 
 
 
 
-boton.addEventListener('click', filtrado )
-    
+filtradoPrioridad.addEventListener('change', filtrado )
