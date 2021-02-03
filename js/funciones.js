@@ -3,6 +3,7 @@
 //pintar tabla
 
 let botonEliminar = document.querySelectorAll('.eliminar')
+let buscadorTexto = document.getElementById('buscarTexto')
 
 function pintarme (pNombre , pPrioridad) {
     listadoTareas.forEach(tarea => {
@@ -55,14 +56,33 @@ function filtrado (event) {
 
 function eliminarTarea (event) {
     botonEliminar = new Array (botonEliminar)
-    console.log(botonEliminar)
-    console.log(botonEliminar.indexOf(this))
+
 }
 
 
 
 
+function buscarTexto (event) {
+    let titulos = document.querySelectorAll('article h2')
+    let cajaTexto = buscadorTexto.value
+    titulos.forEach (element => {
+        let titulo = element.innerText
+        if (titulo == cajaTexto) {
+            element.style.display = "block"
+        } else if (titulo != cajaTexto) {
+            element.style.display = "none"
+        }
+    })
+  
+ 
+     
+    
+}
+
 
 filtradoPrioridad.addEventListener('change', filtrado )
 botonCrear.addEventListener('click', addTarea)
 botonEliminar.forEach(elemento => elemento.addEventListener('click',eliminarTarea))
+
+buscadorTexto.addEventListener('keypress',buscarTexto)
+
