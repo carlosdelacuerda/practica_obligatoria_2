@@ -1,6 +1,6 @@
 let classPrioridad = 'default'
 
-
+let identificador = 0
 class ConstruirTarea {
     constructor (nombre,prioridad) {
         switch(prioridad) {
@@ -14,7 +14,8 @@ class ConstruirTarea {
                 classPrioridad = 'baja'
                 break;
         }
-        let contenido = `<article class="${classPrioridad}"><h2>${nombre}</h2><button class="eliminar">Eliminar</button></article>`
+        identificador++
+        let contenido = `<article class="${classPrioridad}" data-id="${identificador}"><h2>${nombre}</h2><button class="eliminar">Eliminar</button></article>`
         this.xnombre = nombre
         this.xprioridad = prioridad  
         this.tabla = document.querySelector('.tabla')

@@ -1,7 +1,7 @@
 
 let listadoTareas = new Array (
     {
-        nombre: 'Estudiar JS',
+        nombre: 'estudiar',
         prioridad: '1'
     },
     {

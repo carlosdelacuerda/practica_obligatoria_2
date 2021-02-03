@@ -2,16 +2,18 @@
 //ConstruirTarea = require ('./paintList.js') 
 //pintar tabla
 
-let botonEliminar = document.querySelectorAll('.eliminar')
+
 let buscadorTexto = document.getElementById('buscarTexto')
+let padreNode
+let botonEliminar
 
 function pintarme (pNombre , pPrioridad) {
     listadoTareas.forEach(tarea => {
+
         pNombre = tarea.nombre 
         pPrioridad = tarea.prioridad
         new ConstruirTarea (pNombre , pPrioridad)
         botonEliminar = document.querySelectorAll('.eliminar')
-       
     })    
 }
 
@@ -54,35 +56,56 @@ function filtrado (event) {
 }
 
 
-function eliminarTarea (event) {
-    botonEliminar = new Array (botonEliminar)
 
-}
+
 
 
 
 
 function buscarTexto (event) {
+    
     let titulos = document.querySelectorAll('article h2')
     let cajaTexto = buscadorTexto.value
+    cajaTexto = cajaTexto.toLowerCase()
     titulos.forEach (element => {
         let titulo = element.innerText
-        if (titulo == cajaTexto) {
-            element.style.display = "block"
-        } else if (titulo != cajaTexto) {
-            element.style.display = "none"
+        titulo = titulo.toLowerCase()
+        let padre = element.parentNode
+        if (titulo.includes(cajaTexto)) {
+            padre.style.display = "block"
+        } else   {
+            padre.style.display = "none"
         }
     })
-  
- 
-     
-    
 }
+
+
+
+botonEliminar.forEach(element => {
+
+    function borrarElemento (event) {
+        event.preventDefault()
+        padreNode = element.parentNode
+        padreNode = padreNode.dataset.id
+        console.log(padreNode)
+        listadoTareas = listadoTareas.slice(padreNode)
+        console.log(listadoTareas)
+        tabla.innerHTML = ''
+        pintarme()
+    }
+    element.addEventListener('click',borrarElemento)
+    
+})
+
 
 
 filtradoPrioridad.addEventListener('change', filtrado )
 botonCrear.addEventListener('click', addTarea)
-botonEliminar.forEach(elemento => elemento.addEventListener('click',eliminarTarea))
-
 buscadorTexto.addEventListener('keypress',buscarTexto)
+
+
+
+
+
+
 
