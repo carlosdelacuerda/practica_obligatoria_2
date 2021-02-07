@@ -4,8 +4,9 @@
 
 
 let buscadorTexto = document.getElementById('buscarTexto')
-let padreNode
-let botonEliminar
+
+
+
 
 function pintarme (pNombre , pPrioridad) {
     listadoTareas.forEach(tarea => {
@@ -13,7 +14,7 @@ function pintarme (pNombre , pPrioridad) {
         pNombre = tarea.nombre 
         pPrioridad = tarea.prioridad
         new ConstruirTarea (pNombre , pPrioridad)
-        botonEliminar = document.querySelectorAll('.eliminar')
+       
     })    
 }
 
@@ -73,6 +74,8 @@ function buscarTexto (event) {
         let padre = element.parentNode
         if (titulo.includes(cajaTexto)) {
             padre.style.display = "block"
+        } else if (cajaTexto == ''){ 
+            padre.style.display = "block"
         } else   {
             padre.style.display = "none"
         }
@@ -81,29 +84,11 @@ function buscarTexto (event) {
 
 
 
-botonEliminar.forEach(element => {
-
-    function borrarElemento (event) {
-        event.preventDefault()
-        padreNode = element.parentNode
-        padreNode = padreNode.dataset.id
-        console.log(padreNode)
-        listadoTareas = listadoTareas.slice(padreNode)
-        console.log(listadoTareas)
-        tabla.innerHTML = ''
-        pintarme()
-    }
-    element.addEventListener('click',borrarElemento)
-    
-})
-
 
 
 filtradoPrioridad.addEventListener('change', filtrado )
 botonCrear.addEventListener('click', addTarea)
 buscadorTexto.addEventListener('keypress',buscarTexto)
-
-
 
 
 

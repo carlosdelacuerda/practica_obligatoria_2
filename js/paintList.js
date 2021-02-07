@@ -1,6 +1,10 @@
 let classPrioridad = 'default'
+let botonEliminar = document.querySelectorAll('.eliminar')
+let identificador = -1
+let boton
+let padreNode = ''
 
-let identificador = 0
+
 class ConstruirTarea {
     constructor (nombre,prioridad) {
         switch(prioridad) {
@@ -16,6 +20,8 @@ class ConstruirTarea {
         }
         identificador++
         let contenido = `<article class="${classPrioridad}" data-id="${identificador}"><h2>${nombre}</h2><button class="eliminar">Eliminar</button></article>`
+       //meter instancia de borrado
+        this.botones = document.querySelector('button')
         this.xnombre = nombre
         this.xprioridad = prioridad  
         this.tabla = document.querySelector('.tabla')
@@ -23,7 +29,15 @@ class ConstruirTarea {
         this.tabla.appendChild(this.div)
         let creado = document.querySelector('.tabla div:last-child')
         creado.innerHTML = contenido
+
+
+
+              
+                        
+                     
+        
     }
+    
 }
 
 //module.exports = ConstruirTarea
